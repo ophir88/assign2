@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface PlayingCardDeck : NSObject
+#import "Deck.h"
+@interface PlayingCardDeck : Deck
 
 @end

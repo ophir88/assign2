@@ -8,6 +8,19 @@
 
 #import "Card.h"
 
+@interface Card()
+
+@end
+
+
 @implementation Card
 
+-(int) match:(Card *)card
+{
+    if( [card.contents isEqualToString:self.contents])
+    {
+        return 1;
+    }
+    return 0;
+}
 @end
