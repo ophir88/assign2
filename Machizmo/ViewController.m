@@ -28,7 +28,7 @@
 
 bool isBack = false;
 bool isOver = false;
--(CardMatchingGame *) game
+- (CardMatchingGame *) game
 {
     if(!_game)
     {
@@ -37,9 +37,9 @@ bool isOver = false;
     return _game;
 }
 
--(Deck*) createDeck
+- (Deck*) createDeck // abstract
 {
-    return [[PlayingCardDeck alloc] init];
+    return nil;
 }
 
 @synthesize deck = _deck;
