@@ -33,6 +33,38 @@
             endingLineNumber = "18"
             landmarkName = "gameType"
             landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController gameType]"
+                  moduleName = "Machizmo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ophir-abitbol/Documents/Iphone%20stanford%20course/Machizmo/Machizmo/ViewController.m"
+                  timestampString = "461762980.316256"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController setGameType:]"
+                  moduleName = "Machizmo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ophir-abitbol/Documents/Iphone%20stanford%20course/Machizmo/Machizmo/ViewController.m"
+                  timestampString = "461762980.316407"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,6 +96,22 @@
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "-game"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Machizmo/Model/SetCard.m"
+            timestampString = "461762980.246331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-match:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

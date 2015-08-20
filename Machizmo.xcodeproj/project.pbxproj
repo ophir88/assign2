@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		096992DC1B84C85000794060 /* PlayingCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096992DB1B84C85000794060 /* PlayingCardViewController.m */; };
+		096992DF1B85E24500794060 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 096992DE1B85E24500794060 /* SetCard.m */; };
 		09CEF2BB1B821AF0006237B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CEF2BA1B821AF0006237B0 /* main.m */; };
 		09CEF2BE1B821AF0006237B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CEF2BD1B821AF0006237B0 /* AppDelegate.m */; };
 		09CEF2C11B821AF0006237B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CEF2C01B821AF0006237B0 /* ViewController.m */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		096992DA1B84C85000794060 /* PlayingCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardViewController.h; sourceTree = "<group>"; };
 		096992DB1B84C85000794060 /* PlayingCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardViewController.m; sourceTree = "<group>"; };
+		096992DD1B85E24500794060 /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Model/SetCard.h; sourceTree = "<group>"; };
+		096992DE1B85E24500794060 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Model/SetCard.m; sourceTree = "<group>"; };
 		09CEF2B51B821AF0006237B0 /* Machizmo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Machizmo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09CEF2B91B821AF0006237B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09CEF2BA1B821AF0006237B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				09CEF2EB1B832D93006237B0 /* CardMatchingGame.h */,
+				096992DD1B85E24500794060 /* SetCard.h */,
+				096992DE1B85E24500794060 /* SetCard.m */,
 				09CEF2EC1B832D93006237B0 /* CardMatchingGame.m */,
 				09CEF2DE1B82F9F5006237B0 /* Card.h */,
 				09CEF2DF1B82F9F5006237B0 /* Card.m */,
@@ -261,6 +266,7 @@
 				09CEF2E41B82FACC006237B0 /* Deck.m in Sources */,
 				096992DC1B84C85000794060 /* PlayingCardViewController.m in Sources */,
 				09CEF2C11B821AF0006237B0 /* ViewController.m in Sources */,
+				096992DF1B85E24500794060 /* SetCard.m in Sources */,
 				09CEF2BE1B821AF0006237B0 /* AppDelegate.m in Sources */,
 				09CEF2ED1B832D93006237B0 /* CardMatchingGame.m in Sources */,
 				09CEF2EA1B82FAF5006237B0 /* PlayingCardDeck.m in Sources */,
