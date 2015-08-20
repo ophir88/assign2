@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface PlayingCardViewController : UIViewController
+#import "ViewController.h"
+@interface PlayingCardViewController : ViewController
 
 @end

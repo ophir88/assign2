@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+//#import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
 @interface ViewController ()
 @property (strong, nonatomic)IBOutletCollection(UIButton) NSArray *cardButtons;
@@ -32,7 +33,7 @@ bool isOver = false;
 {
     if(!_game)
     {
-        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck: [self createDeck]];
+        _game = [[CardMatchingGame alloc ] initWithCardCount:[self.cardButtons count] usingDeck: [self createDeck]];
     }
     return _game;
 }
