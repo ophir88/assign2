@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 ophir abitbol. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "ViewController.h"
 @interface PlayingCardViewController : ViewController
 

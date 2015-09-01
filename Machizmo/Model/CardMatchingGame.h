@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractCardGame.h"
 #import "Deck.h"
-@interface CardMatchingGame : NSObject
+@interface CardMatchingGame : AbstractCardGame
 
 
 // init:
@@ -30,5 +31,9 @@
 
 // This method returns the current status of the chosen cards & points gained/lost, as a string
 -(NSString *) gameStatus;
+
+
+
+
 
 @end

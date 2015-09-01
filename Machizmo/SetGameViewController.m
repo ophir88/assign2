@@ -16,7 +16,6 @@
 @property(nonatomic, strong) CardSetGame * game;
 @property (strong, nonatomic)IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic)NSMutableArray *colors;
-
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
 @property (weak, nonatomic) IBOutlet UILabel *finishedLbl;
 @property (weak, nonatomic) IBOutlet UILabel *gameScore;
@@ -31,6 +30,9 @@
 
 
 
+
+
+// This method prepares the history data for the History view controller
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"showHistory"])
@@ -43,6 +45,8 @@
     }
 }
 
+
+// Initialize game
 - (AbstractCardGame*)game:(NSUInteger)count
 {
     if(!_game)
@@ -56,7 +60,6 @@
 
 
 - (AbstractCardGame*)game
-
 {
     if(!_game)
     {
@@ -65,21 +68,24 @@
     return _game;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self updateUI];
-}
+// create deck
 - (Deck *) createDeck
 {
     return [[SetDeck alloc] init ];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self updateUI];
+}
+
+
+
 // action when redealButton is pressed:
 - (IBAction)redealButton:(UIButton *)sender {
-    
+
     _game = nil;
     [self updateUI];
-    
     
 }
 

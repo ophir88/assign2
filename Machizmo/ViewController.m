@@ -20,6 +20,7 @@
 
 bool isBack = false;
 bool isOver = false;
+
 - (AbstractCardGame*)game:(NSUInteger)count //abstract
 {
     return nil;

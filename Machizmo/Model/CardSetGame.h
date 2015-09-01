@@ -16,6 +16,5 @@
 
 @property (nonatomic, strong) NSMutableArray * cards;
 @property (nonatomic, strong) GameStatus * gameStatus;
-@property (strong, nonatomic) NSMutableArray *historyArray;
 
 @end

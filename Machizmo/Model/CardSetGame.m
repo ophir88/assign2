@@ -16,7 +16,6 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
 @interface CardSetGame()
 
 @property (nonatomic,readwrite) NSUInteger gameScore;
-//@property (nonatomic) NSString * gameStatus;
 @property (nonatomic) NSMutableArray * cardsCurrentlyChosenProperty;
 @property (nonatomic) BOOL currentChoiceIsSetMatchProperty;
 @property (nonatomic) int currentGainProperty;
