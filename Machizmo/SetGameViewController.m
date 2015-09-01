@@ -10,6 +10,7 @@
 #import "SetDeck.h"
 #import "SetCard.h"
 #import "CardSetGame.h"
+#import "GameHistoryViewController.h"
 
 @interface SetGameViewController ()
 @property(nonatomic, strong) CardSetGame * game;
@@ -30,6 +31,17 @@
 
 
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"showHistory"])
+    {
+      if([segue.destinationViewController isKindOfClass:[GameHistoryViewController class]])
+      {
+          GameHistoryViewController *historyVC = (GameHistoryViewController *) segue.destinationViewController;
+          historyVC.history = self.game.historyArray;
+      }
+    }
+}
 
 - (AbstractCardGame*)game:(NSUInteger)count
 {
@@ -99,8 +111,9 @@
     }
     self.gameScore.text = [NSString stringWithFormat:@"Score: %ld",(long)[self.game score]];
     
-    self.results.attributedText = [self createResultFromGameStatus];
-    
+    NSAttributedString *result = [self createResultFromGameStatus];
+    self.results.attributedText = result;
+    [self.game.historyArray addObject:result];
 }
 
 

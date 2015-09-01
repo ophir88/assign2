@@ -42,6 +42,7 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
             SetCard *card = (SetCard*)[deck drawRandomCard];
             [[self cards] addObject:card];
         }
+        self.historyArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
