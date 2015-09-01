@@ -17,9 +17,9 @@
 
 // setCard properties which will define each card:
 @property (strong,nonatomic) NSString *shape;
-@property (strong,nonatomic) NSString *color;
-@property (strong,nonatomic) NSString *hue;
-@property (nonatomic) NSUInteger rank;
+@property (strong,nonatomic) NSNumber *color;
+@property (strong,nonatomic) NSNumber *hue;
+@property (nonatomic) NSNumber *rank;
 
 
 // possible variations of the different properties:

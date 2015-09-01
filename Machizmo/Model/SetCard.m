@@ -15,20 +15,22 @@
 // -----------------------------
 +(NSArray *) validShapes
 {
+//    return @[@1,@2,@3];
     return @[@"▲",@"●",@"■"];
+    
 }
 
 +(NSArray *) validColors
 {
-    return @[@"red",@"green",@"purple"];
+    return @[@1,@2,@3];
 }
 +(NSArray *) validHues
 {
-    return @[@"soft",@"medium",@"strong"];
+    return @[@1,@2,@3];
 }
 +(NSArray *) validRanks
 {
-    return @[@"1",@"2",@"3"];
+    return @[@1,@2,@3];
 }
 
 
@@ -42,7 +44,7 @@
         _shape = shape;
     }
 }
--(void) setColor:(NSString *)color
+-(void) setColor:(NSNumber *)color
 {
     // make sure it is a valid suit
     if([ [SetCard validColors] containsObject:color] )
@@ -50,7 +52,7 @@
         _color = color;
     }
 }
--(void) setHue:(NSString *)hue
+-(void) setHue:(NSNumber *)hue
 {
     // make sure it is a valid suit
     if([ [SetCard validHues] containsObject:hue] )
@@ -59,9 +61,9 @@
     }
 }
 
--(void) setRank:(NSUInteger ) rank
+-(void) setRank:(NSNumber *) rank
 {
-    if((rank <= [[SetCard validRanks] count ] -1) && rank >0)
+    if(([rank intValue] <= [[SetCard validRanks] count ]) && rank >0)
     {
         _rank = rank;
     }
@@ -73,7 +75,8 @@
 -(NSArray *) match:(Card *) card;
 {
     SetCard * otherCard = (SetCard *) card;
-    return @[@([self.color isEqualToString: otherCard.color]), @(self.shape==otherCard.shape), @(self.rank==otherCard.rank), @(self.hue==otherCard.hue)];
+    
+    return @[@([self.color isEqualToNumber:otherCard.color]), @([self.hue isEqualToNumber:otherCard.hue]), @([self.shape isEqualToString:otherCard.shape]), @([self.rank isEqualToNumber:otherCard.rank])];
 }
 
 

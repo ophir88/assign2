@@ -10,10 +10,15 @@
 #import "Deck.h"
 @interface CardMatchingGame : NSObject
 
+
+// init:
 - (instancetype) initWithCardCount: (NSUInteger) count usingDeck: (Deck *) deck;
 
+// This method is performed every time a card is chosen.
+// The method checks which cards are chosen, and calculates a score
 - (void) chooseCardAtIndex: (NSUInteger) index;
 
+// This Method returns the card at the given index
 - (Card *) cardAtIndex: (NSUInteger) index;
 
 // This property holds the current score of the game.
