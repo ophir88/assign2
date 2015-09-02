@@ -69,17 +69,6 @@ bool isOver = false;
     assert(NO);
 }
 
--(NSString *) titleForCard: (Card*) card
-{
-    assert(NO);
-    return nil;
-}
-
--(UIImage *) imageForCard: (Card*) card
-{
-    assert(NO);
-    return nil;
-}
 
 
 - (IBAction)redealButton:(UIButton *)sender {

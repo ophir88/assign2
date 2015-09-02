@@ -35,7 +35,7 @@
 {
     if([segue.identifier isEqualToString:@"showHistory"])
     {
-        if([segue.destinationViewController isKindOfClass:[GameHistoryViewController class]])
+        if([segue.destinationViewController isKindOfClass:[GameHistoryViewController class]]) // send history to "history MVC"
         {
             GameHistoryViewController *historyVC = (GameHistoryViewController *) segue.destinationViewController;
             historyVC.history = self.game.historyArray;
@@ -54,6 +54,7 @@
     return _game;
 }
 
+
 - (Deck *) createDeck
 {
     return [[PlayingCardDeck alloc]init];
@@ -62,14 +63,11 @@
 
 
 @synthesize deck = _deck;
-// deck getter
+
 -(Deck *) deck
 {
     return _deck;
 }
-
-
-
 
 
 
@@ -86,7 +84,7 @@
     // disable gameType chooser;
     self.gameType.enabled = false;
     
-    int cardIndex = [self.cardButtons indexOfObject:sender];
+    NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     //    NSLog(@" data %@", self.videoMetaData)
     
     [self.game chooseCardAtIndex:cardIndex];
@@ -98,7 +96,7 @@
 {
     for(UIButton *cardButton in self.cardButtons)
     {
-        int cardIndex = [self.cardButtons indexOfObject:cardButton];
+        NSUInteger cardIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardIndex];
         [cardButton setTitle: [self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage: [self imageForCard:card] forState:UIControlStateNormal];
@@ -119,7 +117,6 @@
 }
 
 
-//This method re-deals the cards and resets the score
 - (IBAction)redealButton:(UIButton *)sender {
     
     self.gameType.enabled = true;

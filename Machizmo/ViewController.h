@@ -19,19 +19,19 @@
 
 
 
+// Initialize a game.
 - (AbstractCardGame*)game:(NSUInteger)count; // abstract
 
+// create a deck of cards.
 - (Deck*) createDeck; // abstract
 
-
+// Action when a card is pressed
 - (IBAction)touchCardButton:(UIButton *)sender;
 
+// This method updates the UI
 -(void) updateUI;
 
--(NSString *) titleForCard: (Card*) card;
-
--(UIImage *) imageForCard: (Card*) card;
-
+// redeal a deck
 - (IBAction)redealButton:(UIButton *)sender;
 @end
 

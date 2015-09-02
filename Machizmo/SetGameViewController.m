@@ -37,16 +37,15 @@
 {
     if([segue.identifier isEqualToString:@"showHistory"])
     {
-      if([segue.destinationViewController isKindOfClass:[GameHistoryViewController class]])
-      {
-          GameHistoryViewController *historyVC = (GameHistoryViewController *) segue.destinationViewController;
-          historyVC.history = self.game.historyArray;
-      }
+        if([segue.destinationViewController isKindOfClass:[GameHistoryViewController class]])
+        {
+            GameHistoryViewController *historyVC = (GameHistoryViewController *) segue.destinationViewController;
+            historyVC.history = self.game.historyArray;
+        }
     }
 }
 
 
-// Initialize game
 - (AbstractCardGame*)game:(NSUInteger)count
 {
     if(!_game)
@@ -54,7 +53,7 @@
         _game = [[CardSetGame alloc] initWithCardCount:count usingDeck:[self createDeck]];
     }
     self.cardCount = count;
-
+    
     return _game;
 }
 
@@ -83,7 +82,7 @@
 
 // action when redealButton is pressed:
 - (IBAction)redealButton:(UIButton *)sender {
-
+    
     _game = nil;
     [self updateUI];
     
@@ -93,13 +92,10 @@
 // action when card is flipped
 - (IBAction)touchCardButton:(UIButton *)sender {
     
-
-    
-    NSInteger cardIndex = [self.cardButtons indexOfObject:sender];
-    //    NSLog(@" data %@", self.videoMetaData)
-    
-    [self.game chooseCardAtIndex:cardIndex];
+    NSInteger cardIndex = [self.cardButtons indexOfObject:sender]; // get card index
+    [self.game chooseCardAtIndex:cardIndex]; // assess results
     [self updateUI];
+    
 }
 
 
@@ -108,24 +104,24 @@
     for(UIButton *cardButton in self.cardButtons)
     {
         NSInteger cardIndex = [self.cardButtons indexOfObject:cardButton];
-        
         SetCard *card = (SetCard *)[self.game cardAtIndex:cardIndex fromCards:[self.game cards]];
+        
         // update button text and background
         [cardButton setAttributedTitle:[self createShapeAttributeString:card] forState:UIControlStateNormal ];
         [cardButton setBackgroundImage: [self imageForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
     }
+    
     self.gameScore.text = [NSString stringWithFormat:@"Score: %ld",(long)[self.game score]];
     
-    NSAttributedString *result = [self createResultFromGameStatus];
-    self.results.attributedText = result;
-    [self.game.historyArray addObject:result];
+    NSAttributedString *resultFromCurrentChoice = [self createResultFromGameStatus];
+    self.results.attributedText = resultFromCurrentChoice;
+    [self.game.historyArray addObject:resultFromCurrentChoice];
 }
 
 
 -(UIImage *) imageForCard: (Card*) card
 {
-    
     return [UIImage imageNamed:card.isChosen? @"cardFront" : @"cardBackSet"];
 }
 
@@ -136,35 +132,28 @@
 // This method creates an attributed string representing the current status of the game
 -(NSAttributedString*) createResultFromGameStatus
 {
-
+    
     GameStatus *gameStatus = [self.game gameStatus];
-
+    // get attributeString representing currently chosen cards
     NSMutableAttributedString *resultString = [self createCardsAttributeString:gameStatus.cardsCurrentlyChosen];
     
- 
+    
     if (gameStatus.isMatch) // matching set
     {
         
         NSString *result = [NSString stringWithFormat:@" is a match for %d points!",gameStatus.currentGain];
         [resultString appendAttributedString:[[NSAttributedString alloc] initWithString:result]];
-
+        
         
     }
     else
     {
         if([gameStatus.cardsCurrentlyChosen count]==3) // 3 cards, no set
         {
-            
             NSString *result = [NSString stringWithFormat:@" is not a match. you loose %d points.",gameStatus.currentGain];
             [resultString appendAttributedString:[[NSAttributedString alloc] initWithString:result]];
-
-            
+ 
         }
-        else // less than 3 cards chosen
-        {
-                // do nothing
-        }
-    
     }
     
     return resultString;
@@ -175,10 +164,10 @@
 
 -(NSMutableAttributedString*) createCardsAttributeString:(NSArray*) cards
 {
-   
+    
     NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc]init];
     [resultString appendAttributedString:[[NSAttributedString alloc] initWithString:@"Result:   "]];
-
+    
     for (SetCard* card in cards){
         
         NSAttributedString *cardStringToAdd = [self createShapeAttributeString:card];
@@ -195,17 +184,17 @@
     
     SetCard *card = fromCard;
     NSString *cardString = @"";
-        for (int i = 0; i<[card.rank intValue]; i++) {
-            cardString  = [NSString stringWithFormat:@"%@%@ ",cardString,card.shape];
-            
-        }
-
-     NSDictionary *attributes =
-                                @{NSFontAttributeName : [UIFont fontWithName:@"Palatino-Roman" size:14.0],
-                                NSForegroundColorAttributeName:[self UIColorCreator:card.color withHue:card.hue],
-                                NSStrokeWidthAttributeName: @-4,
-                                NSStrokeColorAttributeName : [self UIColorCreator:card.color]
-                                };
+    for (int i = 0; i<[card.rank intValue]; i++) {
+        cardString  = [NSString stringWithFormat:@"%@%@ ",cardString,card.shape];
+        
+    }
+    
+    NSDictionary *attributes =
+    @{NSFontAttributeName : [UIFont fontWithName:@"Palatino-Roman" size:14.0],
+      NSForegroundColorAttributeName:[self UIColorCreator:card.color withHue:card.hue],
+      NSStrokeWidthAttributeName: @-4,
+      NSStrokeColorAttributeName : [self UIColorCreator:card.color]
+      };
     return [[NSAttributedString alloc] initWithString:cardString attributes:attributes];
 }
 
@@ -226,7 +215,7 @@
     {
         return [UIColor colorWithRed:0.5 green:0 blue:0.5 alpha:[self hueToFloat:hue]];
     }
-
+    
 }
 
 -(UIColor *) UIColorCreator:(NSNumber*)color
@@ -234,6 +223,7 @@
     
     return [self UIColorCreator:color withHue:@3];
 }
+
 
 -(CGFloat) hueToFloat:(NSNumber*)hue
 {

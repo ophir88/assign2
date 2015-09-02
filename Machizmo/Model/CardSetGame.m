@@ -54,15 +54,10 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
 
 - (void) chooseCardAtIndex: (NSUInteger) index
 {
-    
     // get current card
     SetCard *card = (SetCard*)[self cardAtIndex:index fromCards:[self cards] ];
     if(!card.isMatched)
     {
-        
-//        NSMutableArray *cardsCurrentlyChosens  = [NSMutableArray array];
-        
-
         
         if(card.isChosen) // make sure current card isn't chosen.
         {
