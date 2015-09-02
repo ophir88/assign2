@@ -35,7 +35,6 @@
 
 
 // Setters for the cards:
-// ----------------------
 -(void) setShape:(NSString *)shape
 {
     // make sure it is a valid suit

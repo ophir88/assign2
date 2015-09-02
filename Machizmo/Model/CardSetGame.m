@@ -59,7 +59,8 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
     if(!card.isMatched)
     {
         
-        if(card.isChosen) // make sure current card isn't chosen.
+        // First make sure current card isn't already chosen.
+        if(card.isChosen)
         {
             card.chosen = NO; // if so, unchoose
             [self updateStatus:nil areMatched:NO pointsGained:COST_TO_CHOOSE];
@@ -67,25 +68,27 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
         }
         else{
             
+            // If card wasn't pre-chosen, get all currently chosen card:
+
             NSMutableArray *cardsCurrentlyChosenIncludingCurrentChoice = [self getCardsCurrentlyChosen];
 
             [cardsCurrentlyChosenIncludingCurrentChoice addObject:card];
             
-            // make sure there are at least 3 chosen cards:
+            // if there are 3 chosen cards, we can check for sets. O.W. we take no action (except for the score update).
             if([cardsCurrentlyChosenIncludingCurrentChoice count]>2)
             {
+                
+                // in case cards represent a set:
                 if([CardSetGame checkMatch:cardsCurrentlyChosenIncludingCurrentChoice])
                 {
-                    // card match
                     [self setCardsAsMatch: cardsCurrentlyChosenIncludingCurrentChoice];
                     [self updateScore:MATCHING_SET];
-
                     [self updateStatus:cardsCurrentlyChosenIncludingCurrentChoice areMatched:YES pointsGained:MATCHING_SET];
 
                 }
+                // O.W.
                 else{
-                    //
-                    
+                   
                     [self setCardsAsNotChosen: [self getCardsCurrentlyChosen]];
                     [self updateScore:MISMATCH_PENALTY];
                     [self updateStatus:cardsCurrentlyChosenIncludingCurrentChoice areMatched:NO pointsGained:MISMATCH_PENALTY];
@@ -94,19 +97,14 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
                 
             }
             
-            else{
-                
-                // no enough cards. choosing cost and go back
-                
+            else{ //(less than 3 cards are chosen)
                 [self updateStatus:cardsCurrentlyChosenIncludingCurrentChoice areMatched:NO pointsGained:COST_TO_CHOOSE];
-                
             }
             
             
             
         }
         [self updateScore:COST_TO_CHOOSE];
-
         card.chosen = YES;
     }
     
@@ -191,13 +189,11 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
 
 -(void) updateScore: (NSInteger) pointsToAdd
 {
-
     self.gameScore += pointsToAdd;
-    
 }
 
+// This method updates the gameStatus object with the current status:
 -(GameStatus *) gameStatus
-
 {
     if(!_gameStatus)
     {
@@ -221,9 +217,6 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
     if (!_cards) _cards = [[NSMutableArray alloc] init];
     return _cards;
 }
-//-(NSArray*) cardShapeFromInt:(NSNumber*) shape
-//{
-//    return @[@"▲",@"●",@"■"];
-//}
+
 
 @end
