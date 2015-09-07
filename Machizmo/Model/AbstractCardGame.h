@@ -34,7 +34,9 @@
 -(NSString * ) createStringFromCards: (NSMutableArray *) cards;
 
 // This array contains a history of the results
-@property (strong, nonatomic) NSMutableArray *historyArray;
+@property (nonatomic) NSUInteger initialNumberOfCards;
+// This array contains a history of the results
+@property (nonatomic) NSUInteger currentlyAvailableCards;
 
 //  -------------
 // |  PROTECTED  |

@@ -10,7 +10,6 @@
 #import "SetDeck.h"
 #import "SetCard.h"
 #import "CardSetGame.h"
-#import "GameHistoryViewController.h"
 
 @interface SetGameViewController ()
 @property(nonatomic, strong) CardSetGame * game;
@@ -32,18 +31,6 @@
 
 
 
-// This method prepares the history data for the History view controller
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"showHistory"])
-    {
-        if([segue.destinationViewController isKindOfClass:[GameHistoryViewController class]])
-        {
-            GameHistoryViewController *historyVC = (GameHistoryViewController *) segue.destinationViewController;
-            historyVC.history = self.game.historyArray;
-        }
-    }
-}
 
 
 - (AbstractCardGame*)game:(NSUInteger)count

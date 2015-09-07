@@ -9,7 +9,6 @@
 #import "PlayingCardViewController.h"
 #import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
-#import "GameHistoryViewController.h"
 
 @interface PlayingCardViewController ()
 @property (strong, nonatomic)IBOutletCollection(UIButton) NSArray *cardButtons;
@@ -28,20 +27,6 @@
 
 @implementation PlayingCardViewController
 
-
-
-
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"showHistory"])
-    {
-        if([segue.destinationViewController isKindOfClass:[GameHistoryViewController class]]) // send history to "history MVC"
-        {
-            GameHistoryViewController *historyVC = (GameHistoryViewController *) segue.destinationViewController;
-            historyVC.history = self.game.historyArray;
-        }
-    }
-}
 
 
 

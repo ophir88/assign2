@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RPV-dU-uFv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iDC-lz-Chp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -8,7 +8,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController id="BYZ-38-t0r" customClass="PlayingCardViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AbstractCardVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -33,7 +33,7 @@
                                     <rect key="frame" x="161" y="416" width="79" height="30"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="145" y="426" width="79" height="30"/>
+                                    <rect key="frame" x="145" y="475" width="79" height="30"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="261" y="647" width="79" height="30"/>
@@ -48,7 +48,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="525" width="83" height="21"/>
+                                    <rect key="frame" x="16" y="574" width="83" height="21"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="47" y="681" width="83" height="21"/>
@@ -66,7 +66,7 @@
                                     <rect key="frame" x="47" y="526" width="337" height="21"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="506" width="337" height="21"/>
+                                    <rect key="frame" x="16" y="555" width="337" height="21"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="47" y="759" width="711" height="21"/>
@@ -82,9 +82,6 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="291" y="197" width="50" height="60"/>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="43" y="72" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -99,9 +96,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="217" y="140" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -116,9 +110,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="101" y="140" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -133,9 +124,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="159" y="140" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -150,9 +138,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="275" y="140" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -167,9 +152,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="43" y="140" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -184,9 +166,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="217" y="276" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -201,9 +180,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="101" y="276" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -218,9 +194,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="159" y="276" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -235,9 +208,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="275" y="276" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -252,9 +222,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="43" y="276" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -269,9 +236,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="217" y="344" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -286,9 +250,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="101" y="344" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -303,9 +264,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="159" y="344" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -320,9 +278,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="275" y="344" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -337,9 +292,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="43" y="344" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -354,9 +306,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="217" y="208" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -371,9 +320,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="101" y="208" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -388,9 +334,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="159" y="208" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -405,9 +348,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="275" y="208" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -422,9 +362,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="43" y="208" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -444,7 +381,7 @@
                                     <rect key="frame" x="144" y="460" width="113" height="29"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="128" y="470" width="113" height="29"/>
+                                    <rect key="frame" x="128" y="519" width="113" height="29"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="244" y="688" width="113" height="29"/>
@@ -453,6 +390,13 @@
                                     <action selector="chooseGameType:" destination="BYZ-38-t0r" eventType="valueChanged" id="BaT-Ou-0le"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrp-8e-Ka7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="72" width="368" height="395"/>
+                                </variation>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQK-Fg-n6t">
                                 <rect key="frame" x="88" y="65" width="104" height="143"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -462,9 +406,6 @@
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="291" y="265" width="50" height="60"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="101" y="72" width="50" height="60"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
@@ -483,9 +424,6 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="117" y="333" width="50" height="60"/>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="159" y="72" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -503,9 +441,6 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="233" y="333" width="50" height="60"/>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="275" y="72" width="50" height="60"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
                                 </variation>
@@ -522,9 +457,6 @@
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="117" y="333" width="50" height="60"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="217" y="72" width="50" height="60"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="449" y="355" width="40" height="60"/>
@@ -558,6 +490,7 @@
                                 <exclude reference="lKy-5V-Lo0"/>
                                 <exclude reference="Ucd-ki-FtD"/>
                                 <exclude reference="67w-Wp-FwC"/>
+                                <exclude reference="Mrp-8e-Ka7"/>
                                 <exclude reference="zQK-Fg-n6t"/>
                                 <exclude reference="890-Iz-EFg"/>
                                 <exclude reference="XOr-I9-Qzs"/>
@@ -574,38 +507,40 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="cix-9z-C6K"/>
-                                <include reference="NyX-U2-zpc"/>
-                                <include reference="gFu-Yo-I1r"/>
-                                <include reference="Fle-ft-xa5"/>
-                                <include reference="zMj-6g-11E"/>
-                                <include reference="hbE-UG-GZv"/>
-                                <include reference="huB-kn-RvC"/>
-                                <include reference="jp8-Zt-wcy"/>
-                                <include reference="FcJ-Rg-OaL"/>
-                                <include reference="g3F-0R-uYq"/>
-                                <include reference="P9P-L3-h8P"/>
-                                <include reference="Awv-DK-bMT"/>
-                                <include reference="Dyt-hA-MN9"/>
-                                <include reference="k4q-bx-YVD"/>
-                                <include reference="EZk-hG-8om"/>
-                                <include reference="1hv-kZ-hSA"/>
-                                <include reference="Ovg-YE-Nj1"/>
-                                <include reference="lKy-5V-Lo0"/>
-                                <include reference="Ucd-ki-FtD"/>
-                                <include reference="67w-Wp-FwC"/>
-                                <include reference="p1F-Pz-4Bl"/>
+                                <exclude reference="2CD-EO-ODD"/>
+                                <exclude reference="cix-9z-C6K"/>
+                                <exclude reference="NyX-U2-zpc"/>
+                                <exclude reference="gFu-Yo-I1r"/>
+                                <exclude reference="Fle-ft-xa5"/>
+                                <exclude reference="zMj-6g-11E"/>
+                                <exclude reference="hbE-UG-GZv"/>
+                                <exclude reference="huB-kn-RvC"/>
+                                <exclude reference="jp8-Zt-wcy"/>
+                                <exclude reference="FcJ-Rg-OaL"/>
+                                <exclude reference="g3F-0R-uYq"/>
+                                <exclude reference="P9P-L3-h8P"/>
+                                <exclude reference="Awv-DK-bMT"/>
+                                <exclude reference="Dyt-hA-MN9"/>
+                                <exclude reference="k4q-bx-YVD"/>
+                                <exclude reference="EZk-hG-8om"/>
+                                <exclude reference="1hv-kZ-hSA"/>
+                                <exclude reference="Ovg-YE-Nj1"/>
+                                <exclude reference="lKy-5V-Lo0"/>
+                                <exclude reference="Ucd-ki-FtD"/>
+                                <exclude reference="67w-Wp-FwC"/>
+                                <include reference="Mrp-8e-Ka7"/>
+                                <exclude reference="zQK-Fg-n6t"/>
+                                <exclude reference="890-Iz-EFg"/>
+                                <exclude reference="XOr-I9-Qzs"/>
+                                <exclude reference="p1F-Pz-4Bl"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Card Matching Game" id="U4U-MO-lBq">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="MJB-Fk-P4V">
-                            <connections>
-                                <segue destination="PeW-HW-s4e" kind="show" identifier="showHistory" id="KES-Kc-XRM"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="History" id="MJB-Fk-P4V"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cardHolderView" destination="Mrp-8e-Ka7" id="VFv-ik-aCg"/>
                         <outlet property="gameScore" destination="fCs-TG-2Tb" id="sVj-7K-Ppg"/>
                         <outlet property="gameType" destination="h38-Fb-io4" id="KoJ-4x-L1e"/>
                         <outlet property="redealButton" destination="PP6-Ng-Gn1" id="Sf2-LF-dhi"/>
@@ -1406,11 +1341,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Set Game" id="rVm-5O-EAy">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="e6Z-Pe-1Zk">
-                            <connections>
-                                <segue destination="PeW-HW-s4e" kind="show" identifier="showHistory" id="RWC-SC-h0u"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="History" id="e6Z-Pe-1Zk"/>
                     </navigationItem>
                     <connections>
                         <outlet property="gameScore" destination="IGq-WQ-HlA" id="Hty-Lc-Fc3"/>
@@ -1449,49 +1380,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJF-ci-Y8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3442.5" y="-207"/>
+            <point key="canvasLocation" x="3421.5" y="-193.5"/>
         </scene>
-        <!--Game History View Controller-->
-        <scene sceneID="qGw-K4-FIJ">
+        <!--Abstract View Controller-->
+        <scene sceneID="Phd-Ka-Bbj">
             <objects>
-                <viewController id="PeW-HW-s4e" customClass="GameHistoryViewController" sceneMemberID="viewController">
+                <viewController id="iDC-lz-Chp" customClass="AbstractViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AXn-M7-yAk"/>
-                        <viewControllerLayoutGuide type="bottom" id="QUc-d7-7jF"/>
+                        <viewControllerLayoutGuide type="top" id="b9A-2z-Xzc"/>
+                        <viewControllerLayoutGuide type="bottom" id="M7J-y0-80O"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gSP-de-2K4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="go6-3r-bgN">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ae-gu-pVz">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVo-gR-zhc" customClass="PlayingCardView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <gestureRecognizers/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="72" width="368" height="708"/>
+                                    <rect key="frame" x="87" y="179" width="226" height="367"/>
                                 </variation>
-                            </textView>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ded-TS-5eb" appends="YES" id="YMc-ky-LjM"/>
+                                </connections>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.054901960780000002" green="0.43529411759999997" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="2Ae-gu-pVz"/>
+                                <exclude reference="PVo-gR-zhc"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="2Ae-gu-pVz"/>
+                                <include reference="PVo-gR-zhc"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="historyTextBox" destination="2Ae-gu-pVz" id="rgV-3f-hwn"/>
+                        <outlet property="playingCardView" destination="PVo-gR-zhc" id="sPg-PX-q7N"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ECV-EA-tzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kkY-mB-2Ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Ded-TS-5eb">
+                    <connections>
+                        <action selector="swipe:" destination="iDC-lz-Chp" id="EYA-qX-du3"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4407" y="-225"/>
+            <point key="canvasLocation" x="4506" y="-255"/>
         </scene>
         <!--Set Game-->
         <scene sceneID="X99-hF-Yrj">
@@ -1555,7 +1492,4 @@
         <image name="cardBack" width="742" height="1043"/>
         <image name="cardBackSet" width="742" height="1043"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="RWC-SC-h0u"/>
-    </inferredMetricsTieBreakers>
 </document>

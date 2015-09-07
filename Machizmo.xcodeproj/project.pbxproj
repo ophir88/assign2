@@ -10,7 +10,11 @@
 		095439091B93007D0038B718 /* AbstractCardGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 095439081B93007D0038B718 /* AbstractCardGame.m */; };
 		0954390C1B94409F0038B718 /* SetGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954390B1B94409F0038B718 /* SetGameViewController.m */; };
 		0954390F1B946EA20038B718 /* GameStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954390E1B946EA20038B718 /* GameStatus.m */; };
-		095439141B9590B60038B718 /* GameHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095439131B9590B60038B718 /* GameHistoryViewController.m */; };
+		095439191B9883DA0038B718 /* AbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095439161B9883DA0038B718 /* AbstractViewController.m */; };
+		0954391A1B9883DA0038B718 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095439181B9883DA0038B718 /* PlayingCardView.m */; };
+		0954391D1B9C4EAC0038B718 /* AbstractCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954391C1B9C4EAC0038B718 /* AbstractCardVC.m */; };
+		095439201B9C57D70038B718 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954391F1B9C57D70038B718 /* Grid.m */; };
+		095439231B9D5EE60038B718 /* CardViewParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 095439221B9D5EE60038B718 /* CardViewParams.m */; };
 		096992DC1B84C85000794060 /* PlayingCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096992DB1B84C85000794060 /* PlayingCardViewController.m */; };
 		096992DF1B85E24500794060 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 096992DE1B85E24500794060 /* SetCard.m */; };
 		096992E21B89F5D900794060 /* SetDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 096992E11B89F5D900794060 /* SetDeck.m */; };
@@ -46,8 +50,16 @@
 		0954390B1B94409F0038B718 /* SetGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGameViewController.m; sourceTree = "<group>"; };
 		0954390D1B946EA20038B718 /* GameStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatus.h; sourceTree = "<group>"; };
 		0954390E1B946EA20038B718 /* GameStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatus.m; sourceTree = "<group>"; };
-		095439121B9590B60038B718 /* GameHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHistoryViewController.h; sourceTree = "<group>"; };
-		095439131B9590B60038B718 /* GameHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHistoryViewController.m; sourceTree = "<group>"; };
+		095439151B9883DA0038B718 /* AbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractViewController.h; path = ../../../../../Downloads/SuperCard/SuperCard/AbstractViewController.h; sourceTree = "<group>"; };
+		095439161B9883DA0038B718 /* AbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractViewController.m; path = ../../../../../Downloads/SuperCard/SuperCard/AbstractViewController.m; sourceTree = "<group>"; };
+		095439171B9883DA0038B718 /* PlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardView.h; path = ../../../../../Downloads/SuperCard/SuperCard/PlayingCardView.h; sourceTree = "<group>"; };
+		095439181B9883DA0038B718 /* PlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardView.m; path = ../../../../../Downloads/SuperCard/SuperCard/PlayingCardView.m; sourceTree = "<group>"; };
+		0954391B1B9C4EAC0038B718 /* AbstractCardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractCardVC.h; sourceTree = "<group>"; };
+		0954391C1B9C4EAC0038B718 /* AbstractCardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractCardVC.m; sourceTree = "<group>"; };
+		0954391E1B9C57D70038B718 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grid.h; path = ../../../../../Downloads/Grid/Grid.h; sourceTree = "<group>"; };
+		0954391F1B9C57D70038B718 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grid.m; path = ../../../../../Downloads/Grid/Grid.m; sourceTree = "<group>"; };
+		095439211B9D5EE60038B718 /* CardViewParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewParams.h; sourceTree = "<group>"; };
+		095439221B9D5EE60038B718 /* CardViewParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewParams.m; sourceTree = "<group>"; };
 		096992DA1B84C85000794060 /* PlayingCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardViewController.h; sourceTree = "<group>"; };
 		096992DB1B84C85000794060 /* PlayingCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardViewController.m; sourceTree = "<group>"; };
 		096992DD1B85E24500794060 /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Model/SetCard.h; sourceTree = "<group>"; };
@@ -127,10 +139,18 @@
 				096992DA1B84C85000794060 /* PlayingCardViewController.h */,
 				096992DB1B84C85000794060 /* PlayingCardViewController.m */,
 				0954390A1B94409F0038B718 /* SetGameViewController.h */,
+				095439151B9883DA0038B718 /* AbstractViewController.h */,
+				0954391B1B9C4EAC0038B718 /* AbstractCardVC.h */,
+				0954391C1B9C4EAC0038B718 /* AbstractCardVC.m */,
 				0954390B1B94409F0038B718 /* SetGameViewController.m */,
+				095439161B9883DA0038B718 /* AbstractViewController.m */,
+				095439171B9883DA0038B718 /* PlayingCardView.h */,
+				095439181B9883DA0038B718 /* PlayingCardView.m */,
 				09CEF2C21B821AF0006237B0 /* Main.storyboard */,
-				095439121B9590B60038B718 /* GameHistoryViewController.h */,
-				095439131B9590B60038B718 /* GameHistoryViewController.m */,
+				095439211B9D5EE60038B718 /* CardViewParams.h */,
+				095439221B9D5EE60038B718 /* CardViewParams.m */,
+				0954391E1B9C57D70038B718 /* Grid.h */,
+				0954391F1B9C57D70038B718 /* Grid.m */,
 				09CEF2E11B82FA50006237B0 /* Model */,
 				09CEF2C51B821AF0006237B0 /* Images.xcassets */,
 				09CEF2C71B821AF0006237B0 /* LaunchScreen.xib */,
@@ -292,22 +312,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095439231B9D5EE60038B718 /* CardViewParams.m in Sources */,
 				09CEF2E71B82FAE4006237B0 /* PlayingCard.m in Sources */,
-				095439141B9590B60038B718 /* GameHistoryViewController.m in Sources */,
 				09CEF2E41B82FACC006237B0 /* Deck.m in Sources */,
 				096992DC1B84C85000794060 /* PlayingCardViewController.m in Sources */,
 				09CEF2C11B821AF0006237B0 /* ViewController.m in Sources */,
 				0954390F1B946EA20038B718 /* GameStatus.m in Sources */,
 				095439091B93007D0038B718 /* AbstractCardGame.m in Sources */,
+				095439201B9C57D70038B718 /* Grid.m in Sources */,
+				0954391D1B9C4EAC0038B718 /* AbstractCardVC.m in Sources */,
 				096992E51B89FE7E00794060 /* CardSetGame.m in Sources */,
 				096992DF1B85E24500794060 /* SetCard.m in Sources */,
 				09CEF2BE1B821AF0006237B0 /* AppDelegate.m in Sources */,
 				09CEF2ED1B832D93006237B0 /* CardMatchingGame.m in Sources */,
 				09CEF2EA1B82FAF5006237B0 /* PlayingCardDeck.m in Sources */,
 				096992E21B89F5D900794060 /* SetDeck.m in Sources */,
+				0954391A1B9883DA0038B718 /* PlayingCardView.m in Sources */,
 				09CEF2BB1B821AF0006237B0 /* main.m in Sources */,
 				09CEF2E01B82F9F5006237B0 /* Card.m in Sources */,
 				0954390C1B94409F0038B718 /* SetGameViewController.m in Sources */,
+				095439191B9883DA0038B718 /* AbstractViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

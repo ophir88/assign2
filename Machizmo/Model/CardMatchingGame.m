@@ -48,7 +48,6 @@ int numCurrentlyChosen = 0;
             [self.cards addObject:card];
         }
         self.matchNumber = 2;
-        self.historyArray = [[NSMutableArray alloc] init];
 
     }
     
