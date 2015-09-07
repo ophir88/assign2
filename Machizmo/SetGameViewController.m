@@ -103,7 +103,6 @@
     
     NSAttributedString *resultFromCurrentChoice = [self createResultFromGameStatus];
     self.results.attributedText = resultFromCurrentChoice;
-    [self.game.historyArray addObject:resultFromCurrentChoice];
 }
 
 

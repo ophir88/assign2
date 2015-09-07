@@ -12,7 +12,7 @@
 
 -(int) match:(Card *) card;
 {
-    PlayingCard * otherCard = card;
+    PlayingCard * otherCard =  (PlayingCard *)card;
     if(self.rank == otherCard.rank)
     {
         return 4;

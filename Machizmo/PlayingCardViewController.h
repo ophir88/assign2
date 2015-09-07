@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ViewController.h"
-@interface PlayingCardViewController : ViewController
+#import "AbstractCardVC.h"
+@interface PlayingCardViewController : AbstractCardVC
 
 @end

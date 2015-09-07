@@ -13,7 +13,7 @@ static const int COST_TO_CHOOSE = 1;
 @interface CardMatchingGame()
 
 @property (nonatomic,readwrite) NSInteger score;
-@property (nonatomic, strong) NSMutableArray * cards;
+//@property (nonatomic, strong) NSMutableArray * cards;
 @property (nonatomic, strong) NSString * stats; // current game status represented as string
 
 @end
@@ -23,15 +23,9 @@ static const int COST_TO_CHOOSE = 1;
 
 
 int numCurrentlyChosen = 0;
--(NSMutableArray*) cards
-{
-    if(!_cards)
-    {
-        _cards = [[NSMutableArray alloc] init];
-        
-    }
-    return _cards;
-}
+
+
+
 
 - (instancetype) initWithCardCount: (NSUInteger) count usingDeck: (Deck *) deck;
 {
@@ -48,6 +42,8 @@ int numCurrentlyChosen = 0;
             [self.cards addObject:card];
         }
         self.matchNumber = 2;
+        self.initialNumberOfCards = 5;
+        self.currentlyAvailableCards = 5;
 
     }
     
@@ -144,8 +140,7 @@ int numCurrentlyChosen = 0;
         
     }
     self.stats = tempStatus;
-    // add result to  history array
-    [self.historyArray addObject:[[NSAttributedString alloc] initWithString:tempStatus]];
+   
 }
 
 

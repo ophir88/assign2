@@ -10,15 +10,10 @@
 
 @interface AbstractCardVC ()
 
-@property (nonatomic) NSInteger score;
-@property (nonatomic,strong) AbstractCardGame *game;
-@property (nonatomic,strong) NSMutableArray *cards;
-@property (strong, nonatomic) Deck *deck;
-@property (strong, nonatomic) IBOutlet NSMutableArray *cardViews;
-@property (nonatomic,strong) NSMutableArray *cardAndViewHolder;
-@property (strong, nonatomic)  Grid *grid;
+
 @property (weak, nonatomic) IBOutlet UIView *cardHolderView;
 
+@property (nonatomic) BOOL firstLoad;
 
 @end
 
@@ -29,19 +24,36 @@
 #pragma Abstract methods
 - (Deck *)deck
 {
+   if(!_deck)
+   {
+       _deck = [self createDeck];
+   }
+    return _deck;
+}
+
+- (Deck *)createDeck
+{
     assert(NO);
 }
 
--(UIView*) getNewView:(CGRect)frame
+-(UIView*) getNewView:(CGRect)frame forCard:(Card*)card
 {
     assert(NO);
 }
 
 - (AbstractCardGame *) game
 {
-    assert(NO);
+    if (!_game)
+    {
+        _game = [self createGame];
+    }
+    return _game;
 }
 
+- (AbstractCardGame *) createGame
+{
+    assert(NO);
+}
 
 
 
@@ -51,44 +63,55 @@
 {
     if(!_grid)
     {
-        _grid = [[Grid alloc]init];
-        _grid.minimumNumberOfCells = _game.initialNumberOfCards;
-        _grid.size = [_cardHolderView bounds].size;
-        
-        //TODO - set const aspect value
-        _grid.cellAspectRatio = 1.5;
+        [self createGrid];
     }
     return _grid;
 }
 
+- (void) createGrid
+{
+    _grid = [[Grid alloc]init];
+    _grid.minimumNumberOfCells = _game.initialNumberOfCards;
+    _grid.cellAspectRatio = 0.75;
+//    NSLog(@"bound size: %f X %f", [self.view bounds].size.he , [self.view bounds].size.width );
 
+    _grid.size = self.cardHolderView.frame.size;
+    
+    //TODO - set const aspect value
+}
+
+- (NSMutableArray*) createCardViews
+{
+    NSUInteger cardRunningIndex = 0;
+    NSMutableArray *cardViews = [[NSMutableArray alloc] init];
+    self.cardAndViewHolder = [[NSMutableArray alloc]init];
+    for (int row = 0; row<self.grid.rowCount; row++) {
+        for (int col = 0; col<self.grid.columnCount; col++)
+        {
+            
+            if(cardRunningIndex<self.game.initialNumberOfCards)
+            {
+                UIView *view = [self getNewView:[self.grid frameOfCellAtRow:row inColumn:col] forCard:[self.game.cards objectAtIndex:cardRunningIndex]];
+                [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCardButton:)]];
+                [cardViews addObject:view];
+                CardViewParams *cvp = [[CardViewParams alloc] init ];
+                cvp.view = view;
+                cvp.card = [self.game.cards objectAtIndex:cardRunningIndex];
+                [self.cardAndViewHolder addObject:cvp];
+                cardRunningIndex++;
+            }
+            
+            
+        }
+    }
+    return cardViews;
+}
 
 -(NSMutableArray*) cardViews
 {
-    NSUInteger cardRunningIndex = 0;
     if(!_cardViews)
     {
-        self.cardAndViewHolder = [[NSMutableArray alloc]init];
-        for (int row = 0; row<self.grid.rowCount; row++) {
-            for (int col = 0; col<self.grid.columnCount; col++)
-            {
-                
-                if(cardRunningIndex<self.game.initialNumberOfCards)
-                {
-                    UIView *view = [self getNewView:[self.grid frameOfCellAtRow:row inColumn:col]];
-                    [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCardButton:)]];
-                    [self.cardViews addObject:view];
-                    CardViewParams *cvp = [[CardViewParams alloc] init ];
-                    cvp.view = view;
-                    cvp.card = [self.cards objectAtIndex:cardRunningIndex];
-                    [self.cardAndViewHolder addObject:cvp];
-                    cardRunningIndex++;
-                }
-
-                
-            }
-        }
-        
+        _cardViews = [self createCardViews];
     }
     return _cardViews;
 }
@@ -103,15 +126,31 @@
     {
         for (int index = 0; self.game.initialNumberOfCards; index++) {
             card = self.deck.drawRandomCard;
-            [self.cards addObject:card];
+            [_cards addObject:card];
         }
     }
-    return _cardViews;
+    return _cards;
 }
+
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.firstLoad = YES;
+
+}
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(self.firstLoad)
+    {
+        _game = [self createGame];
+        [self createGrid];
+        [self createCardViews];
+        [self updateUI];
+        self.firstLoad = NO;
+    }
     
 }
 
@@ -124,9 +163,10 @@
 
 
 
-- (void)touchCardButton:(UIView *)sender {
-    
-    NSInteger cardIndex = [self.cardViews indexOfObject:sender];
+- (void)touchCardButton:(UIGestureRecognizer *)sender {
+
+//    NSInteger a = [self.cardAndViewHolder indexOfObject:sender.view];
+    NSInteger cardIndex = [self.cardViews indexOfObject:sender.view];
     [self.game chooseCardAtIndex:cardIndex];
     [self updateUI];
     
@@ -150,6 +190,7 @@
     self.grid.minimumNumberOfCells = self.game.currentlyAvailableCards;
     NSUInteger runningViewIndex = 0;
     UIView *view;
+    self.cardViews = [[NSMutableArray alloc] init];
     self.cardAndViewHolder = [[NSMutableArray alloc]init];
     for (int row = 0; row<self.grid.rowCount; row++) {
         for (int col = 0; col<self.grid.columnCount; col++)
@@ -157,25 +198,33 @@
             //get next visible view
             Card *card;
 
-            for (NSUInteger viewIndex = runningViewIndex; viewIndex<[self.cardViews count]; viewIndex++) {
+            for (NSUInteger viewIndex = runningViewIndex; viewIndex<self.game.currentlyAvailableCards; viewIndex++) {
                 
                 view = nil;
-                if(!(card = [self.cards objectAtIndex:viewIndex]).isMatched)
+                if(!(card = [self.game.cards objectAtIndex:viewIndex]).isMatched)
                 {
                     view = [self.cardViews objectAtIndex:viewIndex];
                     runningViewIndex = (++viewIndex);
-                    
                     break;
                 }
                 
             }
-            if(view)
+            if(card)
             {
-                view.frame = [self.grid frameOfCellAtRow:row inColumn:col];
+                view = [self getNewView:[self.grid frameOfCellAtRow:row inColumn:col] forCard:card];
+                [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchCardButton:)]];
+                [self.cardViews addObject:view];
+//                view.frame = [self.grid frameOfCellAtRow:row inColumn:col];
+                    NSLog(@"added card %@", view );
+
+                [self.cardHolderView addSubview:view];
                 CardViewParams *cvp = [[CardViewParams alloc] init];
                 cvp.view = view;
                 cvp.card = card;
                 [self.cardAndViewHolder addObject:cvp];
+            }
+            else{
+                view.hidden = YES;
             }
             
         }
