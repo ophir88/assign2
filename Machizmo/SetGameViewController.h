@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ViewController.h"
+#import "AbstractCardVC.h"
 
-@interface SetGameViewController : ViewController
+@interface SetGameViewController : AbstractCardVC
 
 
 

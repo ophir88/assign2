@@ -11,16 +11,10 @@
 #import "SetCard.h"
 #import "CardSetGame.h"
 
+
 @interface SetGameViewController ()
-@property(nonatomic, strong) CardSetGame * game;
-@property (strong, nonatomic)IBOutletCollection(UIButton) NSArray *cardButtons;
-@property (strong, nonatomic)NSMutableArray *colors;
-@property (weak, nonatomic) IBOutlet UIButton *redealButton;
-@property (weak, nonatomic) IBOutlet UILabel *finishedLbl;
-@property (weak, nonatomic) IBOutlet UILabel *gameScore;
-@property (weak, nonatomic) IBOutlet UILabel *results;
-@property (nonatomic) int flipCount;
-@property (nonatomic) NSUInteger cardCount;
+
+
 
 @end
 
