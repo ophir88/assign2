@@ -15,9 +15,7 @@
 // -----------------------------
 +(NSArray *) validShapes
 {
-//    return @[@1,@2,@3];
-    return @[@"▲",@"●",@"■"];
-    
+    return @[@1,@2,@3];    
 }
 
 +(NSArray *) validColors
@@ -35,7 +33,7 @@
 
 
 // Setters for the cards:
--(void) setShape:(NSString *)shape
+-(void) setShape:(NSNumber *)shape
 {
     // make sure it is a valid suit
     if([ [SetCard validShapes] containsObject:shape] )
@@ -75,7 +73,7 @@
 {
     SetCard * otherCard = (SetCard *) card;
     
-    return @[@([self.color isEqualToNumber:otherCard.color]), @([self.hue isEqualToNumber:otherCard.hue]), @([self.shape isEqualToString:otherCard.shape]), @([self.rank isEqualToNumber:otherCard.rank])];
+    return @[@([self.color isEqualToNumber:otherCard.color]), @([self.hue isEqualToNumber:otherCard.hue]), @([self.shape isEqualToNumber:otherCard.shape]), @([self.rank isEqualToNumber:otherCard.rank])];
 }
 
 

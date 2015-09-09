@@ -19,7 +19,7 @@
     if (self)
     {
         
-        for (NSString* shape in [SetCard validShapes]) {
+        for (NSNumber* shape in [SetCard validShapes]) {
             for (NSNumber* color in [SetCard validColors]) {
                 for (NSNumber* hue in [SetCard validHues]) {
                     for( int rank = 1 ; rank <= [[SetCard validRanks]count] ; rank ++)

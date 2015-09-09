@@ -11,7 +11,6 @@
 static const int MISMATCH_PENALTY = -2;
 static const int MATCHING_SET = 5;
 static const int COST_TO_CHOOSE = -1;
-static const int NUMBER_OF_CARDS_IN_DECK = 30;
 
 @interface CardSetGame()
 
@@ -32,7 +31,7 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
     self = [super init];
     if(self)
     {
-        for (int i = 0 ; i<NUMBER_OF_CARDS_IN_DECK; i++) {
+        for (int i = 0 ; i<count; i++) {
             if([deck isDeckEmpty])
             {
                 self = nil;
@@ -41,6 +40,11 @@ static const int NUMBER_OF_CARDS_IN_DECK = 30;
             SetCard *card = (SetCard*)[deck drawRandomCard];
             [[self cards] addObject:card];
         }
+        
+        
+        self.initialNumberOfCards = count;
+        self.currentlyAvailableCards = count;
+        
     }
     return self;
 }

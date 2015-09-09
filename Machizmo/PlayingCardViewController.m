@@ -19,8 +19,8 @@ static const int INITIAL_NUMBER_OF_CARDS_IN_DECK = 20;
 @interface PlayingCardViewController ()
 
 
-//@property (weak, nonatomic) IBOutlet UIButton *redealButton;
-//@property (weak, nonatomic) IBOutlet UILabel *gameScore;
+@property (weak, nonatomic) IBOutlet UIButton *redealButton;
+@property (weak, nonatomic) IBOutlet UILabel *gameScore;
 
 
 
