@@ -28,7 +28,7 @@
 
 
 // This method returns the current score of the game
--(NSUInteger) score;
+-(NSInteger) score;
 
 // This method recieves cards and returns a string representation of them
 -(NSString * ) createStringFromCards: (NSMutableArray *) cards;

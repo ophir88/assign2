@@ -42,8 +42,8 @@ int numCurrentlyChosen = 0;
             [self.cards addObject:card];
         }
         self.matchNumber = 2;
-        self.initialNumberOfCards = 5;
-        self.currentlyAvailableCards = 5;
+        self.initialNumberOfCards = count;
+        self.currentlyAvailableCards = count;
 
     }
     
@@ -108,6 +108,7 @@ int numCurrentlyChosen = 0;
                         tempStatus = [NSString stringWithFormat:@"%@ %@", tempStatus,chosenCard.contents];
                         
                         chosenCard.matched = YES;
+                        self.currentlyAvailableCards--;
                     }
                     tempStatus = [NSString stringWithFormat:@"%@ %@ %lu %@", tempStatus,@"matches! you gain",(tempScore*(self.matchNumber-1)*MATCH_BONUS), @"points!" ];
                     

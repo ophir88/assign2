@@ -21,7 +21,7 @@
 @property (strong, nonatomic)  Grid *grid;
 
 -(UIView*) getNewView:(CGRect)frame forCard:(Card*)card; //Abstract
-
+-(void) updateView:(UIView *)view withFrame:(CGRect)frame forCard:(Card*)card;
 -(Deck *)deck; //Abstract
 
 @end

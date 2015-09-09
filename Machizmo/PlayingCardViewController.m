@@ -14,7 +14,7 @@
 
 
 
-static const int INITIAL_NUMBER_OF_CARDS_IN_DECK = 30;
+static const int INITIAL_NUMBER_OF_CARDS_IN_DECK = 20;
 
 @interface PlayingCardViewController ()
 
@@ -45,6 +45,15 @@ static const int INITIAL_NUMBER_OF_CARDS_IN_DECK = 30;
     return view;
     
 }
+
+-(void) updateView:(UIView *)view withFrame:(CGRect)frame forCard:(Card*)card
+{
+    
+    PlayingCardView *pcv = (PlayingCardView *)view;
+    pcv.frame = frame;
+    [pcv assignCard:card];
+}
+
 
 - (AbstractCardGame *) createGame
 {

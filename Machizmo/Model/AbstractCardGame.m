@@ -30,7 +30,7 @@
 }
 
 
--(NSUInteger) score
+-(NSInteger) score
 {
     return 0;
 
