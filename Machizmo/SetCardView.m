@@ -19,7 +19,7 @@
 
 #pragma mark - Properties
 
-#define DEFAULT_FACE_CARD_SCALE_FACTOR 0.90
+#define DEFAULT_FACE_CARD_SCALE_FACTOR 0.50
 
 @synthesize faceCardScaleFactor = _faceCardScaleFactor;
 
@@ -32,7 +32,7 @@
     self.shape = setCard.shape;
     self.color = setCard.color;
     self.hue = setCard.hue;
-
+    
     
     [self setFaceUp:setCard.chosen];
     
@@ -74,7 +74,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-
+    
     // Drawing code
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:[self cornerRadius]];
     
@@ -86,8 +86,8 @@
     [[UIColor blackColor] setStroke];
     [roundedRect stroke];
     
-    [self drawBezier];
     if (self.faceUp) {
+        [self drawBezier];
 
     } else {
         [[UIImage imageNamed:@"cardBack"] drawInRect:self.bounds];
@@ -118,16 +118,38 @@
 -(void) drawBezier
 {
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:[self cornerRadius]];
+//    NSLog([NSString stringWithFormat:@"origin: %f, %f" , roundedRect.bounds.origin.x, roundedRect.bounds.origin.y]);
+//    [roundedRect addClip];
     
-    [roundedRect addClip];
+    CGRect shapeRect = [self getRectForRank:self.rank withBounds:self.bounds];
+//    CGRect *shapeRect = CGRectMake(self.bounds.size.width/2, self.bounds.size.height/2, self.bounds.size.width/2, self.bounds.size.height/2);
     
-    [[UIColor whiteColor] setFill];
+    
+    
+    UIBezierPath *square = [UIBezierPath bezierPathWithRect:shapeRect];
+    [square addClip];
+    [[UIColor redColor] setFill];
     UIRectFill(self.bounds);
     
-    [[UIColor blackColor] setStroke];
-    [roundedRect stroke];
+    [[UIColor blueColor] setStroke];
+    [square stroke];
+    
+    
 }
 
+-(CGRect) getRectForRank:(NSNumber*)rank withBounds:(CGRect)bounds
+{
+ 
+    NSUInteger center = bounds.size.height/2;
+    NSUInteger squareHeight = bounds.size.height/5;
+    NSUInteger yOrigin = center - [rank intValue]*squareHeight/2;
+    NSUInteger height = [rank intValue]*squareHeight;
+    NSUInteger xOrigin = bounds.size.height/3;
+    NSUInteger width = bounds.size.height/3;
+    return CGRectMake(xOrigin, yOrigin, width, height);
+
+    
+}
 
 
 #pragma mark - Initialization

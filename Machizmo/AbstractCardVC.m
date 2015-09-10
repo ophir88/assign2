@@ -109,8 +109,6 @@
                 [self.cardHolderView addSubview:cvp.view];
                 cardRunningIndex++;
             }
-            
-            
         }
     }
 }
