@@ -19,7 +19,7 @@
 
 - (void)pinch:(UIPinchGestureRecognizer *)gesture;
 - (void)assignCard:(Card *)card;
-
++ (CGFloat) getCellAspectRatio;
 
 
 @end

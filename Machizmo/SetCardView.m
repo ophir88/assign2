@@ -8,6 +8,7 @@
 
 #import "SetCardView.h"
 #import "SetCard.h"
+#import "SetBezierCreator.h"
 @interface SetCardView()
 @property (nonatomic) CGFloat faceCardScaleFactor;
 @property (nonatomic) SetCard *card;
@@ -20,6 +21,8 @@
 #pragma mark - Properties
 
 #define DEFAULT_FACE_CARD_SCALE_FACTOR 0.50
+#define DEFAULT_CELL_ASPECT_RATIO 1.25
+
 
 @synthesize faceCardScaleFactor = _faceCardScaleFactor;
 
@@ -59,7 +62,10 @@
     [self setNeedsDisplay];
 }
 
-
++ (CGFloat) getCellAspectRatio
+{
+    return DEFAULT_CELL_ASPECT_RATIO;
+}
 
 #pragma mark - Drawing
 
@@ -76,7 +82,8 @@
 {
     
     // Drawing code
-    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:[self cornerRadius]];
+    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                           cornerRadius:[self cornerRadius]];
     
     [roundedRect addClip];
     
@@ -117,22 +124,31 @@
 
 -(void) drawBezier
 {
-    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:[self cornerRadius]];
-//    NSLog([NSString stringWithFormat:@"origin: %f, %f" , roundedRect.bounds.origin.x, roundedRect.bounds.origin.y]);
-//    [roundedRect addClip];
-    
+    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                           cornerRadius:[self cornerRadius]];
+
     CGRect shapeRect = [self getRectForRank:self.rank withBounds:self.bounds];
-//    CGRect *shapeRect = CGRectMake(self.bounds.size.width/2, self.bounds.size.height/2, self.bounds.size.width/2, self.bounds.size.height/2);
+    
+    SetBezierCreator *creator = [[SetBezierCreator alloc] init];
     
     
+    for (int i = 0; i<[self.rank intValue]; i++) {
+        CGRect rect = shapeRect;
+        rect.origin.x = shapeRect.origin.x + i * shapeRect.size.width/[self.rank intValue];
+        rect.size.width = shapeRect.size.width/[self.rank intValue];
+
+        UIBezierPath *shape = [creator bezierPathForShapeType:self.shape forRect:rect];
+        [self fillShape:shape];
+
+
+    }
     
-    UIBezierPath *square = [UIBezierPath bezierPathWithRect:shapeRect];
-    [square addClip];
-    [[UIColor redColor] setFill];
-    UIRectFill(self.bounds);
-    
-    [[UIColor blueColor] setStroke];
-    [square stroke];
+//    [square addClip];
+//    [[UIColor redColor] setFill];
+//    UIRectFill(self.bounds);
+//    
+//    [[UIColor blueColor] setStroke];
+//    [square stroke];
     
     
 }
@@ -140,15 +156,82 @@
 -(CGRect) getRectForRank:(NSNumber*)rank withBounds:(CGRect)bounds
 {
  
-    NSUInteger center = bounds.size.height/2;
-    NSUInteger squareHeight = bounds.size.height/5;
-    NSUInteger yOrigin = center - [rank intValue]*squareHeight/2;
-    NSUInteger height = [rank intValue]*squareHeight;
-    NSUInteger xOrigin = bounds.size.height/3;
-    NSUInteger width = bounds.size.height/3;
+    NSUInteger center = bounds.size.width/2;
+    NSUInteger squareWitdh = bounds.size.width/4;
+    NSUInteger yOrigin = bounds.size.height/4;
+//    NSUInteger yOrigin = center - [rank intValue]*squareHeight/2;
+    NSUInteger height = bounds.size.height/2;
+    NSUInteger xOrigin = center - [rank intValue]*squareWitdh/2;
+    NSUInteger width = [rank intValue]*bounds.size.width/4;
     return CGRectMake(xOrigin, yOrigin, width, height);
 
     
+}
+
+             
+ -(void)fillShape:(UIBezierPath *)shape
+{
+    
+    
+    UIColor *color = [self UIcolorFromCardColor:self.color];
+
+    if ([self.hue intValue]==1)
+    {
+        [color setFill];
+        [shape fill];
+        [color setStroke];
+        [shape stroke];
+    }
+    if ([self.hue intValue]==2)
+    {
+        [color setStroke];
+        [shape stroke];
+    }
+    if ([self.hue intValue]==3)
+    {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSaveGState(context);
+        
+        CGContextAddPath(context, shape.CGPath);
+        CGContextClip(context);
+        
+        // Perform clipped drawing here
+        UIBezierPath *stripes = [UIBezierPath bezierPath];
+        for ( int x = 0; x < shape.bounds.size.width; x += 2 )
+        {
+            [stripes moveToPoint:CGPointMake( shape.bounds.origin.x + x, shape.bounds.origin.y )];
+            [stripes addLineToPoint:CGPointMake( shape.bounds.origin.x + x, shape.bounds.origin.y + shape.bounds.size.height )];
+        }
+        [stripes setLineWidth:1];
+        [color setStroke];
+        [shape stroke];
+        [stripes stroke];
+        // Restore the state
+        CGContextRestoreGState(context);
+        
+        
+    }
+    
+}
+
+-(UIColor *) UIcolorFromCardColor:(NSNumber *)cardColor
+{
+    if ([cardColor intValue]==1)
+    {
+        return [UIColor redColor];
+
+    }
+    if ([cardColor intValue]==2)
+    {
+        return [UIColor greenColor];
+
+    }
+    if ([cardColor intValue]==3)
+    {
+        return [UIColor purpleColor];
+
+    }
+    return nil;
 }
 
 

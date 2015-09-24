@@ -45,12 +45,29 @@ static const int INITIAL_NUMBER_OF_CARDS_IN_DECK = 20;
     
 }
 
+
+-(CGFloat) getCellAspectRatio
+{
+    return [PlayingCardView getCellAspectRatio];
+}
+
+
 -(void) updateView:(UIView *)view withFrame:(CGRect)frame forCard:(Card*)card
 {
     
-    PlayingCardView *pcv = (PlayingCardView *)view;
-    pcv.frame = frame;
-    [pcv assignCard:card];
+    PlayingCardView *playingCardView = (PlayingCardView *)view;
+    playingCardView.frame = frame;
+    
+    if(card.isNewlyChosen)
+    {
+          [UIView transitionWithView:playingCardView duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{} completion:nil];
+        card.newlyChosen = NO;
+    }
+
+
+    [playingCardView assignCard:card];
+    
+
 }
 
 

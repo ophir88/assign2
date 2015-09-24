@@ -13,12 +13,14 @@
 #import "SetCardView.h"
 
 static const int INITIAL_NUMBER_OF_CARDS_IN_DECK = 12;
+static const int NUMBER_OF_CARDS_TO_ADD = 3;
 
 
 @interface SetGameViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
 @property (weak, nonatomic) IBOutlet UILabel *gameScore;
+@property (weak, nonatomic) IBOutlet CardSetGame *game;
 
 
 @end
@@ -51,6 +53,7 @@ static const int INITIAL_NUMBER_OF_CARDS_IN_DECK = 12;
 - (AbstractCardGame *) createGame
 {
     CardSetGame *game = [[CardSetGame alloc ] initWithCardCount:INITIAL_NUMBER_OF_CARDS_IN_DECK usingDeck: [self createDeck]];
+    self.game = game;
     return game;
 }
 
@@ -64,7 +67,10 @@ static const int INITIAL_NUMBER_OF_CARDS_IN_DECK = 12;
     return deck;
 }
 
-
+-(CGFloat) getCellAspectRatio
+{
+    return [SetCardView getCellAspectRatio];
+}
 
 
 //- (AbstractCardGame*)game:(NSUInteger)count

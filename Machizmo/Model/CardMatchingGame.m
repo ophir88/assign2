@@ -138,6 +138,7 @@ int numCurrentlyChosen = 0;
         }
         self.score -= COST_TO_CHOOSE;
         card.chosen = YES;
+        card.newlyChosen = YES;
         
     }
     self.stats = tempStatus;

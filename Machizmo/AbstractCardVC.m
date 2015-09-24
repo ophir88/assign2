@@ -61,7 +61,10 @@
     assert(NO);
 }
 
-
+-(CGFloat) getCellAspectRatio
+{
+    assert(NO);
+}
 
 
 #pragma class methods
@@ -86,9 +89,10 @@
 {
     _grid = [[Grid alloc]init];
     _grid.minimumNumberOfCells = _game.initialNumberOfCards;
-    _grid.cellAspectRatio = 0.75;
+    _grid.cellAspectRatio = [self getCellAspectRatio];
     _grid.size = self.cardHolderView.frame.size;
 }
+
 
 - (void) createCardViews
 {
@@ -182,9 +186,6 @@
 
 -(void) updateUI
 {
-//    int prevRowCount = (int)
-//    int prevColCount = (int)
-
     self.grid.minimumNumberOfCells = self.game.currentlyAvailableCards;
     int runningViewIndex = 0;
     int numberOfViewsAdded = 0;
@@ -201,6 +202,8 @@
                         cvp = [self.cardAndViewHolder objectAtIndex:numberOfViewsAdded];
                         cvp.card = card;
                         [self updateView:cvp.view withFrame:[self.grid frameOfCellAtRow:row inColumn:col] forCard:card];
+                        [UIView transitionWithView:cvp.view duration:1 options:UIViewAnimationOptionCurveEaseIn animations:^{} completion:nil];
+
                         cvp.view.hidden = NO;
                         runningViewIndex = (++viewIndex);
                         numberOfViewsAdded++;
